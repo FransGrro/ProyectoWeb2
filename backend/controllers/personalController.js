@@ -102,7 +102,7 @@ function eliminar(req, res) {
                 if(data.affectedRows === 0) {
                     mensaje = "Persona no encontrada";
                 } else {
-                    mensaje = "Persona elimina con éxito";
+                    mensaje = "Persona eliminada con éxito";
                 }
 
                 res.json({error: false, data, mensaje});

@@ -49,7 +49,7 @@ function eliminar(req, res) {
                 if(data.affectedRows === 0) {
                     mensaje = "Categoria no encontrada";
                 } else {
-                    mensaje = "Categoria elimina con éxito";
+                    mensaje = "Categoria eliminada con éxito";
                 }
 
                 res.json({error: false, data, mensaje});

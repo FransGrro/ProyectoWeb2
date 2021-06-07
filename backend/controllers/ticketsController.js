@@ -3,7 +3,7 @@ const connection = require('../config/connection');
 
 function listarTickets(req, res) {
     if(connection) {
-        let sql = "SELECT * FROM tickets";
+        let sql = "SELECT tickets.tic_id,tickets.tic_nombre,tickets.tic_desc,tickets.tic_prio,tickets.per_id,tickets.cat_id,tickets.tic_status,p.per_nombre, c.cat_nombre FROM tickets INNER JOIN personal p on tickets.per_id=p.per_id INNER JOIN categorias c on tickets.cat_id=c.cat_id";
         connection.query(sql, (err, ticket) => {
             if(err) {
                 res.json(err);
@@ -39,7 +39,7 @@ function crear(req, res){
         console.log(req.body);
         const ticket = req.body;
 
-        if(!ticket.nombre){
+        if(!ticket.tic_nombre){
             return res.status(400).send({error: true, mensaje: "El nombre es obligatorio"});
         }
 
@@ -61,7 +61,7 @@ function editar(req, res) {
         const { id } = req.params;
         const ticket = req.body;
 
-        let sql = "UPDATE tickets set ? WHERE per_id = ?";
+        let sql = "UPDATE tickets set ? WHERE tic_id = ?";
 
         connection.query(sql, [ticket, id], (err, data) => {
             if(err) {
@@ -85,7 +85,7 @@ function editar(req, res) {
 function eliminar(req, res) {
     if(connection) {
         const { id } = req.params;
-        let sql = "DELETE FROM tickets WHERE id = ?";
+        let sql = "DELETE FROM tickets WHERE tic_id = ?";
         connection.query(sql, [id], (err, data) => {
             if(err) {
                 res.json(err);
