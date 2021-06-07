@@ -24,7 +24,7 @@ export default {
             campos:[
                 {key:"cat_id", label: "Id"},
                 {key: "cat_nombre", label: "Nombre"},
-                { key: "actions", label: "Acciones" },
+                {key: "actions", label: "Acciones" },
             ]
         }
     },

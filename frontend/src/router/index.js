@@ -34,6 +34,26 @@ const routes = [
     path: '/editarPersona',
     name: 'EditarPersona',
     component: () => import('../views/EditarPersona.vue')
+  },
+  {
+    path: '/tickets',
+    name: 'VerTickets',
+    component: () => import('../views/VerTickets.vue')
+  },
+  {
+    path: '/agregarTicket',
+    name: 'AgregarTicket',
+    component: () => import('../views/AgregarTicket.vue')
+  },
+  {
+    path: '/editarTicket',
+    name: 'EditarTicket',
+    component: () => import('../views/EditarTicket.vue')
+  },
+  {
+    path: '/cambiarEstatus',
+    name: 'CambiarEstatus',
+    component: () => import('../views/CambiarEstatus.vue')
   }
 ]
 

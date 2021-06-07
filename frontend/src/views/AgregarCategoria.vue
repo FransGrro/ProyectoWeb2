@@ -37,7 +37,7 @@ export default {
     computed: {
         validacionNombre(){
             return(
-            this.categoria.cat_nombre !== undefined && this.categoria.cat_nombre.trim() !== ""
+                this.categoria.cat_nombre !== undefined && this.categoria.cat_nombre.trim() !== ""
             )
         }
     },
