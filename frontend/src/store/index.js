@@ -8,6 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     categorias:[],
+    catElegida:{},
     personal:[],
     persona:{},
     tickets: [],
@@ -15,6 +16,9 @@ export default new Vuex.Store({
 
   },
   mutations: {
+    SET_CATELEGIDA(state, catElegida) {
+      state.catElegida = catElegida;
+    },
     SET_CATEGORIAS(state, categorias) {
       state.categorias = categorias;
     },
@@ -32,6 +36,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    setCatElegida({commit},id){
+        commit('SET_CATELEGIDA', id);
+    },
     setCategorias({commit}){
       axios.get('http://localhost:3000/categorias/')
       .then( response => {
@@ -109,12 +116,9 @@ export default new Vuex.Store({
     }
   
   },
-  /*getters: {
-    opcionesPersonal: state => {
-      return {
-        texto: `${state.personal.per_apellidos}, ${state.personal.per_nombre}`,
-        value: state.personal.per_id
-      }
+  getters:{
+    ticketsFiltrados: state => {
+      return state.tickets.filter(ticket => ticket.cat_id === state.catElegida)
     }
-  }*/
+  }
 })

@@ -34,7 +34,7 @@
         <b-form-select-option :value="null" disabled>-- Seleccione un empleado --</b-form-select-option>
       </template>
       <b-form-select-option v-for="p in personal" :key="p.per_id" :value="p.per_id">{{p.per_nombre}} {{p.per_apellidos}}</b-form-select-option>
-      </b-form-select>
+      </b-form-select> 
       <br>
 
     <b-form-select v-model="ticket.cat_id" class="mb-3">
@@ -47,7 +47,6 @@
 
       <b-button type="submit" class="mt-2" variant="primary">Guardar</b-button>
     </b-form>
-    
     <notifications position = "bottom left" />
   </div> 
 </template>
@@ -136,4 +135,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>

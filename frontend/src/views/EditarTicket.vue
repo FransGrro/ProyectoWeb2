@@ -72,7 +72,6 @@ export default {
         per_id: "",
         cat_id: "",
         tic_status: "",
-       
       },
       prioridades:[
           { text: 'Baja', value: '1' },
